@@ -1,4 +1,4 @@
-Unit 8: Group Milestone - README Example
+JSUFitness
 ===
 
 :::info
