@@ -14,7 +14,7 @@ JSUFitness
 
 ## Overview
 ### Description
-Tracks what music an individual listens to, and pairs them with others based on that music. Could be potentially used as a dating app, or just meeting new friends with similar music tastes.
+JSUFitness is an iOS application that not only allow JSU students to track their workout, but also let students to make schedule with their personal trainner in school.
 
 ### App Evaluation
 - **Category:** Social Networking / Music
@@ -79,8 +79,10 @@ Optional:
 ## Wireframes
 <img src="https://i.imgur.com/9CrjH1K.jpg" width=800><br>
 
+:::unnecessary
 ### [BONUS] Digital Wireframes & Mockups
 <img src="https://i.imgur.com/lYHn37F.jpg" height=200>
 
 ### [BONUS] Interactive Prototype
 <img src="https://i.imgur.com/AiKfE5g.gif" width=200>
+:::
