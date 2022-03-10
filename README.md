@@ -14,7 +14,7 @@ JSUFitness
 
 ## Overview
 ### Description
-JSUFitness is an iOS application that not only allow JSU students to track their workout, but also let students to make schedule with their personal trainner in school.
+JSUFitness is an iOS application that not only allow JSU students to track their workout, but also let students make schedule with their personal trainner in school.
 
 ### App Evaluation
 - **Category:** Social Networking / Music
