@@ -70,17 +70,20 @@
                             <constraint firstItem="Ysc-XV-A1U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kYA-yB-4oA"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="C9v-5K-oRd">
-                        <barButtonItem key="rightBarButtonItem" title="Scope" style="plain" id="AUn-6n-7rP">
+                        <barButtonItem key="rightBarButtonItem" id="neN-gD-sO3">
+                            <imageReference key="image" image="plus.square.on.square" catalog="system" symbolScale="large"/>
                             <connections>
-                                <action selector="scopeButtonTapped:" destination="BYZ-38-t0r" id="dUS-4k-n2r"/>
+                                <action selector="barAddButtonTapped:" destination="BYZ-38-t0r" id="MbH-85-l9a"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="AddEventButton" destination="neN-gD-sO3" id="nfb-Wf-ORm"/>
                         <outlet property="calendar" destination="wsB-H3-oRp" id="cbW-ys-2gI"/>
                         <outlet property="calendarHeightConstrait" destination="HFH-Df-8uK" id="2Ud-yM-vfe"/>
-                        <outlet property="calendarScopeChangeButton" destination="AUn-6n-7rP" id="hsf-CY-JUh"/>
                         <outlet property="scheduleTbView" destination="Ysc-XV-A1U" id="7EY-eL-IJA"/>
                     </connections>
                 </viewController>
@@ -203,6 +206,7 @@
         <image name="bell" catalog="system" width="128" height="124"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="person.text.rectangle" catalog="system" width="128" height="93"/>
+        <image name="plus.square.on.square" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
