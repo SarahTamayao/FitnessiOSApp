@@ -7,4 +7,5 @@ target 'JSUFitness' do
 
   # Pods for JSUFitness
   pod 'FSCalendar'
+  pod 'DropDown'
 end
