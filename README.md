@@ -12,7 +12,7 @@ JSUFitness is an iOS application that allows JSU athlete coach and athlete commu
 ### App Evaluation
 - **Category:** Social Networking
 - **Mobile:** This app would be primarily developed for mobile.
-- **Story:** Allows coach to create a team as they have in school. Coach can schedule for training and meeting through the app to notify the athelets in their teams. Athletes can conform the the schedule so that the new schedule will show on their app schedule page. Athletes can also create a absence for any training or meeting.
+- **Story:** Allows coach to create a team as they have in school. Coach can schedule for training and meeting through the app to notify the athelets in their teams. Athletes can confirm the the schedule so that the new schedule will show on their app schedule page. Athletes can also create a absence for any training or meeting.
 - **Market:** This is for JSU Athlete use at first.
 - **Habit:** 
 - **Scope:** 
@@ -28,7 +28,7 @@ JSUFitness is an iOS application that allows JSU athlete coach and athlete commu
 * Coach can create a new meeting or new training
 * Coach can approve or decline a absence from athletes
 * Athlete can require to join a team
-* Athlete can conform a new meeting or new training notification from coach
+* Athlete can confirm a new meeting or new training notification from coach
 * Athlete can make a absence request for centain training or meeting to coach
 * User can update his/her profile like portrait image and nickname
 
