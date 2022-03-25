@@ -14,7 +14,7 @@ JSUFitness is an iOS application that allows the JSU coaching staff and athletic
 - **Mobile:** This app would be primarily developed for mobile.
 - **Story:** Allows the coach to create a team(s) in the app. Coach can schedule for training and meeting through the app to notify the athelets in their teams. Athletes can confirm the the schedule so that the new schedule will show on their app schedule page. Athletes can also create a absence for any training or meeting.
 - **Market:** Currently this is for JSU Athletes.
-- **Habit:** ……——……^_^
+- **Habit:** 
 - **Scope:** Jackson State University
 
 ## Product Spec
@@ -63,4 +63,4 @@ JSUFitness is an iOS application that allows the JSU coaching staff and athletic
 * Personal Profile
 
 ## Wireframes
-<img src="" width=800><br>
+<img src="https://github.com/JSUFitnessiOSApp/FitnessiOSApp/files/8347185/Note.Mar.23.2022.pdf" width=800><br>
