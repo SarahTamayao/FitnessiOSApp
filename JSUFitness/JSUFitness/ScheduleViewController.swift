@@ -51,6 +51,9 @@ class ScheduleViewController: UIViewController {
         //the gesture that user can pull the calendar to change the scope of the calendar
         setCalendarPanGesture()
         
+        //add dropdownMenuSelectionAction event
+        setUpDropDownMenuSelectionAction()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,5 +130,17 @@ extension ScheduleViewController {
         guard let anchorViewOfDropDown = dropDownMenu.anchorView else {return}
         dropDownMenu.bottomOffset = CGPoint(x: 0, y: anchorViewOfDropDown.plainView.bounds.height)
         self.dropDownMenu.show()
+    }
+    
+    func setUpDropDownMenuSelectionAction() {
+        self.dropDownMenu.selectionAction = { index, title in
+            print("tapped on row \(index), title: \(title)")
+            if index == 0 {
+                //testing server code
+                let user = User(username: "jack", password: "12345678", firstName: "chao", lastName: "jiang", portrait: UIImage(systemName: "lasso") as! UIImage, phone: 6667778888, email: "jack@gmail.com")
+                let coach = Coach(user: user, type: "basketball")
+                ParseServerComm.coachSignUp(theCoach: coach)
+            }
+        }
     }
 }

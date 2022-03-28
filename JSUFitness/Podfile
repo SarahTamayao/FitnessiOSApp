@@ -8,4 +8,6 @@ target 'JSUFitness' do
   # Pods for JSUFitness
   pod 'FSCalendar'
   pod 'DropDown'
+  pod 'Parse'
+  pod 'AlamofireImage'
 end
