@@ -64,3 +64,9 @@ JSUFitness is an iOS application that allows the JSU coaching staff and athletic
 
 ## Wireframes
 <img src="https://github.com/JSUFitnessiOSApp/FitnessiOSApp/files/8347185/Note.Mar.23.2022.pdf" width=800><br>
+
+### Database EER Diagram
+<img src="https://github.com/JSUFitnessiOSApp/FitnessiOSApp/files/8372720/EER.pdf" width=800><br>
+
+### Database Design Schema
+<img src="https://user-images.githubusercontent.com/35981611/160647963-86e61ec6-cf2a-4ad0-891c-7ce6ebef4d20.png" width=800><br>
