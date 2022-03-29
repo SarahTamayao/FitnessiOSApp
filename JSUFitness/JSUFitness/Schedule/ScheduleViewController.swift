@@ -56,36 +56,47 @@ class ScheduleViewController: UIViewController {
         
     }
     
+    
+}
+
+//MARK: - viewWillAppear
+extension ScheduleViewController {
     override func viewWillAppear(_ animated: Bool) {
+//        schedules.append("abc")
+        self.scheduleTbView.reloadData()
         if schedules.count != 0 {
             noScheduleLableLayoutSetup(isHidden: true)
         } else {
             noScheduleLableLayoutSetup(isHidden: false)
         }
     }
-    
-
-    
 }
 
-
+//MARK: - ScheduleTableView functionality
 extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     
     func setUITableViewDelegateNDataSource() {
         self.scheduleTbView.delegate = self
         self.scheduleTbView.dataSource = self
+        scheduleTbView.rowHeight = 50
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.schedules.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = ScheduleTableViewCell()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ScheduleDetailViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
+//MARK: - No ScheduleView Label View Layout
 extension ScheduleViewController {
     
     func noScheduleLableLayoutSetup(isHidden: Bool) {
@@ -102,6 +113,7 @@ extension ScheduleViewController {
     }
 }
 
+//MARK: - FSCalendar functionality
 extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func setFSCalendarDelegateNDataSource() {
@@ -122,7 +134,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
 }
 
 
-//MARK: - Funcationality for navigationbar items
+//MARK: - Navigationbar items Functionality
 extension ScheduleViewController {
     @IBAction func barAddButtonTapped(_ sender: Any) {
         dropDownMenu.anchorView = self.AddEventButton

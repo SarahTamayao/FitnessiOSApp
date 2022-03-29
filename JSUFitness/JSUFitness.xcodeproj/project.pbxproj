@@ -15,6 +15,7 @@
 		DF01153927EA203200CBF2E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */; };
 		DF3D67FB27F23274001C48DF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FA27F23274001C48DF /* Model.swift */; };
 		DF3D67FD27F235B0001C48DF /* ParseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FC27F235B0001C48DF /* ParseServer.swift */; };
+		DF3D680027F36C81001C48DF /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */; };
 		DF8988C827EB756900B26C94 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8988C727EB756900B26C94 /* ProfileViewController.swift */; };
 		DFE7DA8127EA81E80080C801 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE7DA8027EA81E80080C801 /* ScheduleViewController.swift */; };
 		DFE7DA8327EA820C0080C801 /* NotificationTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */; };
@@ -34,6 +35,7 @@
 		DF01153A27EA203200CBF2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF3D67FA27F23274001C48DF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DF3D67FC27F235B0001C48DF /* ParseServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseServer.swift; sourceTree = "<group>"; };
+		DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
 		DF8988C727EB756900B26C94 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DFE7DA8027EA81E80080C801 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableTableViewController.swift; sourceTree = "<group>"; };
@@ -90,17 +92,15 @@
 		DF01152B27EA203100CBF2E2 /* JSUFitness */ = {
 			isa = PBXGroup;
 			children = (
-				DF3D67F927F22E64001C48DF /* ModelAndServer */,
+				DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */,
 				DF01153227EA203100CBF2E2 /* Main.storyboard */,
 				DF01152C27EA203100CBF2E2 /* AppDelegate.swift */,
 				DF01152E27EA203100CBF2E2 /* SceneDelegate.swift */,
-				DFE7DA8027EA81E80080C801 /* ScheduleViewController.swift */,
-				DFE7DA8427EAC1920080C801 /* ScheduleTableViewCell.swift */,
+				DF3D67FE27F35F28001C48DF /* Schedule */,
 				DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */,
 				DF8988C727EB756900B26C94 /* ProfileViewController.swift */,
-				DF01153527EA203200CBF2E2 /* Assets.xcassets */,
-				DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */,
-				DF01153A27EA203200CBF2E2 /* Info.plist */,
+				DF3D67F927F22E64001C48DF /* ModelAndServer */,
+				DF3D680127F370ED001C48DF /* Support Files */,
 			);
 			path = JSUFitness;
 			sourceTree = "<group>";
@@ -112,6 +112,25 @@
 				DF3D67FC27F235B0001C48DF /* ParseServer.swift */,
 			);
 			path = ModelAndServer;
+			sourceTree = "<group>";
+		};
+		DF3D67FE27F35F28001C48DF /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				DFE7DA8027EA81E80080C801 /* ScheduleViewController.swift */,
+				DFE7DA8427EAC1920080C801 /* ScheduleTableViewCell.swift */,
+				DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		DF3D680127F370ED001C48DF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DF01153527EA203200CBF2E2 /* Assets.xcassets */,
+				DF01153A27EA203200CBF2E2 /* Info.plist */,
+			);
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +251,7 @@
 				DF3D67FB27F23274001C48DF /* Model.swift in Sources */,
 				DF8988C827EB756900B26C94 /* ProfileViewController.swift in Sources */,
 				DFE7DA8127EA81E80080C801 /* ScheduleViewController.swift in Sources */,
+				DF3D680027F36C81001C48DF /* ScheduleDetailViewController.swift in Sources */,
 				DFE7DA8527EAC1920080C801 /* ScheduleTableViewCell.swift in Sources */,
 				DF01152D27EA203100CBF2E2 /* AppDelegate.swift in Sources */,
 				DF01152F27EA203100CBF2E2 /* SceneDelegate.swift in Sources */,

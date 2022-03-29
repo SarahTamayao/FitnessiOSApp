@@ -26,70 +26,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E63-H5-qlr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2388" y="-506"/>
-        </scene>
-        <!--ScheduleViewController-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" userLabel="ScheduleViewController" customClass="ScheduleViewController" customModule="JSUFitness" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ysc-XV-A1U">
-                                <rect key="frame" x="0.0" y="388" width="414" height="508"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6uN-dW-0Sk" customClass="ScheduleTableViewCell" customModule="JSUFitness" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6uN-dW-0Sk" id="bXF-O6-BSe">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsB-H3-oRp" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="88" width="414" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="HFH-Df-8uK"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="wsB-H3-oRp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7PR-v4-Q0V"/>
-                            <constraint firstAttribute="bottom" secondItem="Ysc-XV-A1U" secondAttribute="bottom" id="XPN-5I-yzF"/>
-                            <constraint firstItem="Ysc-XV-A1U" firstAttribute="top" secondItem="wsB-H3-oRp" secondAttribute="bottom" id="Xbz-g3-HbY"/>
-                            <constraint firstItem="Ysc-XV-A1U" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Zev-ob-hKK"/>
-                            <constraint firstItem="wsB-H3-oRp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c7e-XH-rff"/>
-                            <constraint firstItem="wsB-H3-oRp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gn7-K6-gIl"/>
-                            <constraint firstItem="Ysc-XV-A1U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kYA-yB-4oA"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="C9v-5K-oRd">
-                        <barButtonItem key="rightBarButtonItem" id="neN-gD-sO3">
-                            <imageReference key="image" image="plus.square.on.square" catalog="system" symbolScale="large"/>
-                            <connections>
-                                <action selector="barAddButtonTapped:" destination="BYZ-38-t0r" id="MbH-85-l9a"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="AddEventButton" destination="neN-gD-sO3" id="nfb-Wf-ORm"/>
-                        <outlet property="calendar" destination="wsB-H3-oRp" id="cbW-ys-2gI"/>
-                        <outlet property="calendarHeightConstrait" destination="HFH-Df-8uK" id="2Ud-yM-vfe"/>
-                        <outlet property="scheduleTbView" destination="Ysc-XV-A1U" id="7EY-eL-IJA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-368" y="-1379"/>
+            <point key="canvasLocation" x="-2717" y="-495"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="kdk-4U-UXY">
@@ -113,6 +50,85 @@
                 <tabBarItem title="Item" id="pgz-8x-L82"/>
             </objects>
             <point key="canvasLocation" x="-1317" y="-1379"/>
+        </scene>
+        <!--ScheduleViewController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="ScheduleViewController" customClass="ScheduleViewController" customModule="JSUFitness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsB-H3-oRp" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="88" width="414" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="HFH-Df-8uK"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ysc-XV-A1U" userLabel="ScheduleTbView">
+                                <rect key="frame" x="0.0" y="388" width="414" height="508"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="6uN-dW-0Sk" userLabel="ScheduleTableViewCell" customClass="ScheduleTableViewCell" customModule="JSUFitness" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6uN-dW-0Sk" id="bXF-O6-BSe">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wsB-H3-oRp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7PR-v4-Q0V"/>
+                            <constraint firstAttribute="bottom" secondItem="Ysc-XV-A1U" secondAttribute="bottom" id="XPN-5I-yzF"/>
+                            <constraint firstItem="Ysc-XV-A1U" firstAttribute="top" secondItem="wsB-H3-oRp" secondAttribute="bottom" id="Xbz-g3-HbY"/>
+                            <constraint firstItem="Ysc-XV-A1U" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Zev-ob-hKK"/>
+                            <constraint firstItem="wsB-H3-oRp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c7e-XH-rff"/>
+                            <constraint firstItem="wsB-H3-oRp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gn7-K6-gIl"/>
+                            <constraint firstItem="Ysc-XV-A1U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kYA-yB-4oA"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Schedule" id="C9v-5K-oRd">
+                        <barButtonItem key="rightBarButtonItem" id="neN-gD-sO3">
+                            <imageReference key="image" image="plus.square.on.square" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <action selector="barAddButtonTapped:" destination="BYZ-38-t0r" id="MbH-85-l9a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="AddEventButton" destination="neN-gD-sO3" id="nfb-Wf-ORm"/>
+                        <outlet property="calendar" destination="wsB-H3-oRp" id="cbW-ys-2gI"/>
+                        <outlet property="calendarHeightConstrait" destination="HFH-Df-8uK" id="2Ud-yM-vfe"/>
+                        <outlet property="scheduleTbView" destination="Ysc-XV-A1U" id="7EY-eL-IJA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-368.11594202898556" y="-1379.4642857142856"/>
+        </scene>
+        <!--ScheduleDetailViewController-->
+        <scene sceneID="4cj-mE-TvW">
+            <objects>
+                <viewController id="MP0-sU-vg9" userLabel="ScheduleDetailViewController" customClass="ScheduleDetailViewController" customModule="JSUFitness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hVd-Xg-TQB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="z2r-Nh-5o7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="84Z-yi-dnj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81J-5a-HPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="404" y="-1379"/>
         </scene>
         <!--NotificationTableViewController-->
         <scene sceneID="lTB-VF-nAv">
@@ -199,7 +215,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5c0-ID-oUP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1317" y="295"/>
+            <point key="canvasLocation" x="-1264" y="318"/>
         </scene>
     </scenes>
     <resources>
