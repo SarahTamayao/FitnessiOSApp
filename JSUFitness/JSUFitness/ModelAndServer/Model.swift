@@ -25,7 +25,7 @@ struct Coach {
 struct Athlete {
     let user: User
     var type: String
-    var team: Team
+    var team: Team? = nil
 }
 
 struct Team {

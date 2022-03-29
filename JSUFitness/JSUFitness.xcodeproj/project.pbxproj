@@ -75,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				DF01152B27EA203100CBF2E2 /* JSUFitness */,
+				DF01153527EA203200CBF2E2 /* Assets.xcassets */,
+				DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */,
 				DF01152A27EA203100CBF2E2 /* Products */,
 				C5C9766F4634635D0AA2D164 /* Pods */,
 				2774C66A36CD6581100BC0EA /* Frameworks */,
@@ -92,15 +94,14 @@
 		DF01152B27EA203100CBF2E2 /* JSUFitness */ = {
 			isa = PBXGroup;
 			children = (
-				DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */,
 				DF01153227EA203100CBF2E2 /* Main.storyboard */,
 				DF01152C27EA203100CBF2E2 /* AppDelegate.swift */,
 				DF01152E27EA203100CBF2E2 /* SceneDelegate.swift */,
+				DF01153A27EA203200CBF2E2 /* Info.plist */,
 				DF3D67FE27F35F28001C48DF /* Schedule */,
 				DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */,
 				DF8988C727EB756900B26C94 /* ProfileViewController.swift */,
 				DF3D67F927F22E64001C48DF /* ModelAndServer */,
-				DF3D680127F370ED001C48DF /* Support Files */,
 			);
 			path = JSUFitness;
 			sourceTree = "<group>";
@@ -122,15 +123,6 @@
 				DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */,
 			);
 			path = Schedule;
-			sourceTree = "<group>";
-		};
-		DF3D680127F370ED001C48DF /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				DF01153527EA203200CBF2E2 /* Assets.xcassets */,
-				DF01153A27EA203200CBF2E2 /* Info.plist */,
-			);
-			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
