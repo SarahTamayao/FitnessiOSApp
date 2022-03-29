@@ -4,6 +4,7 @@
 1. [Overview](#Overview)
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
+4. [Database](#Database)
 
 ## Overview
 ### Description
@@ -19,9 +20,7 @@ JSUFitness is an iOS application that allows the JSU coaching staff and athletic
 
 ## Product Spec
 ### 1. User Stories (Required and Optional)
-
 **Required Must-have Stories**
-
 * User sign up, log in, log out
 * Coach user can create a team
 * Coach can add and delete members from team
@@ -32,12 +31,9 @@ JSUFitness is an iOS application that allows the JSU coaching staff and athletic
 * Athlete can make a absence request for centain training or meeting to coach
 * User can update his/her profile like portrait image and nickname
 
-
 **Optional Nice-to-have Stories**
-
 * Dark mode
 * Personalized Schedule (Coach)
-
 
 ### 2. Screen Archetypes
 * Login 
@@ -47,15 +43,12 @@ JSUFitness is an iOS application that allows the JSU coaching staff and athletic
 * Personal Profile
 
 ### 3. Navigation
-
 **Tab Navigation** (Tab to Screen)
-
 * Schedule
 * Notification 
 * Personal 
 
 **Flow Navigation** (Screen to Screen)
-
 * Login 
 * Register
 * Schedule Page
@@ -65,6 +58,7 @@ JSUFitness is an iOS application that allows the JSU coaching staff and athletic
 ## Wireframes
 <img src="https://github.com/JSUFitnessiOSApp/FitnessiOSApp/files/8347185/Note.Mar.23.2022.pdf" width=800><br>
 
+## Database
 ### Database EER Diagram
 <img src="https://github.com/JSUFitnessiOSApp/FitnessiOSApp/files/8372720/EER.pdf" width=800><br>
 
