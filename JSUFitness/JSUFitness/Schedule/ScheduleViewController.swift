@@ -149,9 +149,9 @@ extension ScheduleViewController {
             print("tapped on row \(index), title: \(title)")
             if index == 0 {
                 //testing server code
-                let user = User(username: "jack", password: "12345678", firstName: "chao", lastName: "jiang", portrait: UIImage(systemName: "lasso") as! UIImage, phone: 6667778888, email: "jack@gmail.com")
-                let coach = Coach(user: user, type: "basketball")
-                ParseServerComm.coachSignUp(theCoach: coach)
+                let user = User(username: "nick", password: "22345678", firstName: "nicolas", lastName: "jay", portrait: UIImage(systemName: "lasso") as! UIImage, phone: 6667778888, email: "nick@gmail.com")
+                let athlete = Athlete(user: user, type: "basketball")
+                ParseServerComm.athleteSignUp(theAthlete: athlete)
             }
         }
     }

@@ -27,7 +27,19 @@ struct ParseServerComm {
     }
     
     static func athleteSignUp(theAthlete: Athlete, completion: (()->())? = nil) {
-        
+        userSignUp(theUser: theAthlete.user) {
+            let athlete = PFObject(className: "Athlete")
+            athlete["class"] = theAthlete.type
+            athlete["user"] = PFUser.current()!
+            athlete.saveInBackground { succeed, error in
+                if succeed {
+                    print("successfully saved athlete \(theAthlete.user.username)")
+                    completion?()
+                } else {
+                    print("failed to save athlete \(theAthlete.user.username)")
+                }
+            }
+        }
     }
     
     
@@ -37,7 +49,7 @@ struct ParseServerComm {
 //MARK: - private help functions
 extension ParseServerComm {
     
-    private static func userSignUp(theUser: User, completion: (()->())? = nil) {
+    private static func userSignUp(theUser: User, succeed: (()->())? = nil) {
         let user = PFUser()
         user.username = theUser.username
         user.password = theUser.password
@@ -51,7 +63,7 @@ extension ParseServerComm {
         user.signUpInBackground { success, error in
             if success {
                 print("successfully saved user: \(theUser.username)")
-                completion?()
+                succeed?()
             } else {
                 print("failed to save user: \(theUser.username)")
             }
