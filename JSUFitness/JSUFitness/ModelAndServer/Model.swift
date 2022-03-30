@@ -38,7 +38,7 @@ struct Event {
     var time: Date
     var place: String
     var detail: String
-    let coach: Coach
+    let coach: Coach? = nil
 }
 
 struct Attendance {

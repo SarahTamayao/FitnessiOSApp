@@ -51,52 +51,38 @@ class ScheduleViewController: UIViewController {
         //the gesture that user can pull the calendar to change the scope of the calendar
         setCalendarPanGesture()
         
-        //add dropdownMenuSelectionAction event
-        setUpDropDownMenuSelectionAction()
-        
     }
     
-    
-}
-
-//MARK: - viewWillAppear
-extension ScheduleViewController {
     override func viewWillAppear(_ animated: Bool) {
-//        schedules.append("abc")
-        self.scheduleTbView.reloadData()
         if schedules.count != 0 {
             noScheduleLableLayoutSetup(isHidden: true)
         } else {
             noScheduleLableLayoutSetup(isHidden: false)
         }
     }
+    
+
+    
 }
 
-//MARK: - ScheduleTableView functionality
+
 extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     
     func setUITableViewDelegateNDataSource() {
         self.scheduleTbView.delegate = self
         self.scheduleTbView.dataSource = self
-        scheduleTbView.rowHeight = 50
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.schedules.count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ScheduleTableViewCell()
+        let cell = UITableViewCell()
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = ScheduleDetailViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-//MARK: - No ScheduleView Label View Layout
 extension ScheduleViewController {
     
     func noScheduleLableLayoutSetup(isHidden: Bool) {
@@ -113,7 +99,6 @@ extension ScheduleViewController {
     }
 }
 
-//MARK: - FSCalendar functionality
 extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func setFSCalendarDelegateNDataSource() {
@@ -134,7 +119,7 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
 }
 
 
-//MARK: - Navigationbar items Functionality
+//MARK: - Funcationality for navigationbar items
 extension ScheduleViewController {
     @IBAction func barAddButtonTapped(_ sender: Any) {
         dropDownMenu.anchorView = self.AddEventButton
@@ -142,29 +127,5 @@ extension ScheduleViewController {
         guard let anchorViewOfDropDown = dropDownMenu.anchorView else {return}
         dropDownMenu.bottomOffset = CGPoint(x: 0, y: anchorViewOfDropDown.plainView.bounds.height)
         self.dropDownMenu.show()
-    }
-    
-    func setUpDropDownMenuSelectionAction() {
-        self.dropDownMenu.selectionAction = { index, title in
-            print("tapped on row \(index), title: \(title)")
-            if index == 0 {
-//                //testing server code
-//                let user1 = User(username: "nora", password: "22345678", firstName: "nora", lastName: "jones", portrait: UIImage(systemName: "lasso") as! UIImage, phone: 6667778888, email: "nora@gmail.com")
-//                let coach = Coach(user: user1, type: "basetball")
-//                ParseServerComm.coachSignUp(theCoach: coach)
-//                let user2 = User(username: "jack", password: "22345678", firstName: "jack", lastName: "jones", portrait: UIImage(systemName: "lasso") as! UIImage, phone: 6667778888, email: "jack@gmail.com")
-//                let athlete = Athlete(user: user2, type: "baseball")
-//                ParseServerComm.athleteSignUp(theAthlete: athlete)
-            } else {
-//                //testing server code
-//                let event = Event(title: "Test", time: Date.now, place: "JSU", detail: "This is a test")
-//                let user2 = User(username: "jack", password: "22345678", firstName: "jack", lastName: "jones", portrait: UIImage(systemName: "lasso") as! UIImage, phone: 6667778888, email: "jack@gmail.com")
-//                let athlete = Athlete(user: user2, type: "baseball")
-//                let athletes = [athlete]
-//                ParseServerComm.coachPostNewEvent(theEvent: event, athletes: athletes, completion: nil)
-                
-            }
-        
-        }
     }
 }
