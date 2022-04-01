@@ -13,6 +13,7 @@
 		DF01153427EA203100CBF2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF01153227EA203100CBF2E2 /* Main.storyboard */; };
 		DF01153627EA203200CBF2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF01153527EA203200CBF2E2 /* Assets.xcassets */; };
 		DF01153927EA203200CBF2E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */; };
+		DF30E82627F4AEF8006B1D9F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF30E82527F4AEF8006B1D9F /* SignupViewController.swift */; };
 		DF3D67FB27F23274001C48DF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FA27F23274001C48DF /* Model.swift */; };
 		DF3D67FD27F235B0001C48DF /* ParseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FC27F235B0001C48DF /* ParseServer.swift */; };
 		DF3D680027F36C81001C48DF /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */; };
@@ -33,6 +34,7 @@
 		DF01153527EA203200CBF2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF01153827EA203200CBF2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF01153A27EA203200CBF2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF30E82527F4AEF8006B1D9F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		DF3D67FA27F23274001C48DF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DF3D67FC27F235B0001C48DF /* ParseServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseServer.swift; sourceTree = "<group>"; };
 		DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
@@ -75,8 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				DF01152B27EA203100CBF2E2 /* JSUFitness */,
-				DF01153527EA203200CBF2E2 /* Assets.xcassets */,
-				DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */,
 				DF01152A27EA203100CBF2E2 /* Products */,
 				C5C9766F4634635D0AA2D164 /* Pods */,
 				2774C66A36CD6581100BC0EA /* Frameworks */,
@@ -97,13 +97,24 @@
 				DF01153227EA203100CBF2E2 /* Main.storyboard */,
 				DF01152C27EA203100CBF2E2 /* AppDelegate.swift */,
 				DF01152E27EA203100CBF2E2 /* SceneDelegate.swift */,
-				DF01153A27EA203200CBF2E2 /* Info.plist */,
+				DF30E82427F4AED6006B1D9F /* Signup&Login */,
+				DF3D67F927F22E64001C48DF /* ModelAndServer */,
 				DF3D67FE27F35F28001C48DF /* Schedule */,
 				DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */,
 				DF8988C727EB756900B26C94 /* ProfileViewController.swift */,
-				DF3D67F927F22E64001C48DF /* ModelAndServer */,
+				DF01153A27EA203200CBF2E2 /* Info.plist */,
+				DF01153527EA203200CBF2E2 /* Assets.xcassets */,
+				DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */,
 			);
 			path = JSUFitness;
+			sourceTree = "<group>";
+		};
+		DF30E82427F4AED6006B1D9F /* Signup&Login */ = {
+			isa = PBXGroup;
+			children = (
+				DF30E82527F4AEF8006B1D9F /* SignupViewController.swift */,
+			);
+			path = "Signup&Login";
 			sourceTree = "<group>";
 		};
 		DF3D67F927F22E64001C48DF /* ModelAndServer */ = {
@@ -242,6 +253,7 @@
 			files = (
 				DF3D67FB27F23274001C48DF /* Model.swift in Sources */,
 				DF8988C827EB756900B26C94 /* ProfileViewController.swift in Sources */,
+				DF30E82627F4AEF8006B1D9F /* SignupViewController.swift in Sources */,
 				DFE7DA8127EA81E80080C801 /* ScheduleViewController.swift in Sources */,
 				DF3D680027F36C81001C48DF /* ScheduleDetailViewController.swift in Sources */,
 				DFE7DA8527EAC1920080C801 /* ScheduleTableViewCell.swift in Sources */,

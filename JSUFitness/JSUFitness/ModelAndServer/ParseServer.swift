@@ -8,7 +8,7 @@
 import Foundation
 import Parse
 
-fileprivate enum Role: String {
+enum Role: String {
     case Coach = "Coach"
     case Athlete = "Athlete"
 }
@@ -93,11 +93,11 @@ extension ParseServerComm {
     private static func userSignUp(theUser: User, succeed: (()->())? = nil) {
         let user = PFUser()
         user.username = theUser.username
-        user.password = theUser.password
-        user.email = theUser.email
-        user["first"] = theUser.firstName
-        user["last"] = theUser.lastName
-        if let portraitFile = imageConvert(for: theUser.portrait) {
+        user.password = theUser.password!
+        user.email = theUser.email!
+        user["first"] = theUser.firstName!
+        user["last"] = theUser.lastName!
+        if let portraitFile = imageConvert(for: theUser.portrait!) {
             user["portrait"] = portraitFile
         }
         user["phone"] = theUser.phone

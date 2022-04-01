@@ -9,12 +9,12 @@ import UIKit
 
 struct User {
     var username: String
-    var password: String
-    var firstName: String
-    var lastName: String
-    var portrait: UIImage
-    var phone: Int
-    var email: String
+    var password: String?
+    var firstName: String?
+    var lastName: String?
+    var portrait: UIImage?
+    var phone: Int?
+    var email: String?
 }
 
 struct Coach {
