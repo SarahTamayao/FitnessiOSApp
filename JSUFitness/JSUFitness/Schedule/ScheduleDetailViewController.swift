@@ -13,6 +13,7 @@ class ScheduleDetailViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.title = "Detail"
+        //comment is added
     }
     
 
