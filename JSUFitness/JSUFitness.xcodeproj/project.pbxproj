@@ -58,14 +58,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		200936F227F5325D007914A2 /* LoginAndSignUp */ = {
-			isa = PBXGroup;
-			children = (
-				200936F327F532F6007914A2 /* LoginViewController.swift */,
-			);
-			path = LoginAndSignUp;
-			sourceTree = "<group>";
-		};
 		2774C66A36CD6581100BC0EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				DF30E82527F4AEF8006B1D9F /* SignupViewController.swift */,
+				200936F327F532F6007914A2 /* LoginViewController.swift */,
 			);
 			path = "Signup&Login";
 			sourceTree = "<group>";
@@ -132,7 +125,6 @@
 			children = (
 				DF3D67FA27F23274001C48DF /* Model.swift */,
 				DF3D67FC27F235B0001C48DF /* ParseServer.swift */,
-				200936F227F5325D007914A2 /* LoginAndSignUp */,
 			);
 			path = ModelAndServer;
 			sourceTree = "<group>";
