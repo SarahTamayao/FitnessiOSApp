@@ -222,12 +222,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cab-hn-diE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4242.3999999999996" y="-559.35960591133005"/>
+            <point key="canvasLocation" x="-4452" y="-571"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gCi-Rt-x7k">
             <objects>
-                <tabBarController wantsFullScreenLayout="YES" id="mXC-E1-nE8" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="FitnessTabBarController" wantsFullScreenLayout="YES" id="mXC-E1-nE8" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="DqW-cH-fzp"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hBi-Fu-wlA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

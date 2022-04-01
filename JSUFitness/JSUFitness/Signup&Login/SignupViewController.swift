@@ -216,7 +216,7 @@ extension UIImageView {
 }
 
 
-//MARK: - DROPDOWN
+//MARK: - DROPDOWN Menu
 extension SignupViewController {
     
     func addSportsLabelGesture() {
