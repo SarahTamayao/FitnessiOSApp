@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200936F427F532F6007914A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200936F327F532F6007914A2 /* LoginViewController.swift */; };
 		D2FE7DF636869D0488B04172 /* Pods_JSUFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 479C90CE07B26C693ADE5A28 /* Pods_JSUFitness.framework */; };
 		DF01152D27EA203100CBF2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01152C27EA203100CBF2E2 /* AppDelegate.swift */; };
 		DF01152F27EA203100CBF2E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01152E27EA203100CBF2E2 /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		200936F327F532F6007914A2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		479C90CE07B26C693ADE5A28 /* Pods_JSUFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSUFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4B282AC357361C95CC4ED8 /* Pods-JSUFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSUFitness.debug.xcconfig"; path = "Target Support Files/Pods-JSUFitness/Pods-JSUFitness.debug.xcconfig"; sourceTree = "<group>"; };
 		63016E1BC4E10B62A71A2059 /* Pods-JSUFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSUFitness.release.xcconfig"; path = "Target Support Files/Pods-JSUFitness/Pods-JSUFitness.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		200936F227F5325D007914A2 /* LoginAndSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				200936F327F532F6007914A2 /* LoginViewController.swift */,
+			);
+			path = LoginAndSignUp;
+			sourceTree = "<group>";
+		};
 		2774C66A36CD6581100BC0EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 			children = (
 				DF3D67FA27F23274001C48DF /* Model.swift */,
 				DF3D67FC27F235B0001C48DF /* ParseServer.swift */,
+				200936F227F5325D007914A2 /* LoginAndSignUp */,
 			);
 			path = ModelAndServer;
 			sourceTree = "<group>";
@@ -260,6 +271,7 @@
 				DF01152D27EA203100CBF2E2 /* AppDelegate.swift in Sources */,
 				DF01152F27EA203100CBF2E2 /* SceneDelegate.swift in Sources */,
 				DF3D67FD27F235B0001C48DF /* ParseServer.swift in Sources */,
+				200936F427F532F6007914A2 /* LoginViewController.swift in Sources */,
 				DFE7DA8327EA820C0080C801 /* NotificationTableTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -390,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -408,7 +420,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y6RK3XXLPA;
+				DEVELOPMENT_TEAM = 6YBGBJ67L3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JSUFitness/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -416,6 +428,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,7 +450,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y6RK3XXLPA;
+				DEVELOPMENT_TEAM = 6YBGBJ67L3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JSUFitness/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -445,6 +458,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
