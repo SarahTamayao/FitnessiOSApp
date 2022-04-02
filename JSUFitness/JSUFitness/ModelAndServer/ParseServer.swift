@@ -15,10 +15,19 @@ enum Role: String {
 
 struct ParseServerComm {
     
+    /**
+     Sign up as Coach
+     - parameter theCoach: Coach
+     - parameter completion: (()->())? This clouser will invoke after successfully saved new coach in server
+     */
     static func coachSignUp(theCoach: Coach, completion: (()->())? = nil) {
+        let coach = PFObject(className: "Coach")
+        guard let type = theCoach.type else {
+            print("failed to get sports type to let new coach sign up")
+            return
+        }
+        coach["class"] = type
         userSignUp(theUser: theCoach.user) {
-            let coach = PFObject(className: "Coach")
-            coach["class"] = theCoach.type
             coach["user"] = PFUser.current()!
             coach.saveInBackground { success, error in
                 if success {
@@ -31,10 +40,19 @@ struct ParseServerComm {
         }
     }
     
+    /**
+     Sign up as Athlete
+     - parameter theAthlete: Athlete
+     - parameter completion: (()->())? This closure will invoke after successfully saved new Athlete in server
+     */
     static func athleteSignUp(theAthlete: Athlete, completion: (()->())? = nil) {
+        let athlete = PFObject(className: "Athlete")
+        guard let type = theAthlete.type else {
+            print("failed to get sports type to let new athlete sign up")
+            return
+        }
+        athlete["class"] = type
         userSignUp(theUser: theAthlete.user) {
-            let athlete = PFObject(className: "Athlete")
-            athlete["class"] = theAthlete.type
             athlete["user"] = PFUser.current()!
             athlete.saveInBackground { succeed, error in
                 if succeed {
@@ -47,7 +65,14 @@ struct ParseServerComm {
         }
     }
     
-    static func coachPostNewEvent(theEvent: Event, athletes: [Athlete], completion: (()->())? = nil) {
+    /**
+     Post a new Event on server by Coach
+     - parameter theEvent: Event
+     - parameter athletes: [Athlete] a list of athlete that are required to attend the event
+     - parameter completion: (()->())? This closure will invoke after successfully saved new event in server
+     - Description: This function will update both Event and AthleteEventAttendance class on database
+     */
+    static func NewEventPostByCoach(theEvent: Event, athletes: [Athlete], completion: (()->())? = nil) {
         let event = PFObject(className: "Event")
         event["title"] = theEvent.title
         event["time"] = theEvent.time
@@ -60,7 +85,6 @@ struct ParseServerComm {
                     print("The event: \(theEvent.title) successfully created")
                     for athlete in athletes {
                         let athleteEventAttendance = PFObject(className: "AthleteEventAttendance")
-                        print("here above with username: \(athlete.user.username)")
                         athleteEventAttendance["event"] = event
                         getAthlete(by: athlete.user.username) { ath in
                             athleteEventAttendance["athlete"] = ath
@@ -81,7 +105,81 @@ struct ParseServerComm {
             }
         }
         
-        
+    }
+    
+    
+    /**
+     Post a new team on server by coach
+     - parameter theTeam: Team
+     - parameter completion: (()->())? This closure will invoke after successfully saved new team in database
+     - Description This function will check if there is already a team with the same name as the new team, if so, the new team will not be created. If not, it will start post new team to the database
+     */
+    static func NewTeamPostedBycoach(theTeam: Team, completion:(()->())? = nil) {
+        getTeamWithName(theTeam: theTeam) { team in
+            print("There is already a team with name: \(theTeam.name)")
+            completion?()
+        } failedWithNoNameMatch: {
+            let team = PFObject(className: "Team")
+            team["name"] = theTeam.name
+            getCurrentUserWithRole(role: .Coach) { coach in
+                team["coach"] = coach
+                team.saveInBackground { success, error in
+                    if success {
+                        print("successfully create a new team with team name \(theTeam.name)")
+                        completion?()
+                    } else {
+                        print("failed to create a new team with name \(theTeam.name)")
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    /**
+     Get a team PFObject that fits required team name
+     - parameter theTeam: Team
+     - parameter completion: ((PFObject)->())? the closure that will be invoked when successfully found the team to return the team
+     - parameter failedWithNoNameMatch: (()->())? the closure that will be invoked when there is no name match team found in database
+     */
+    static func getTeamWithName(theTeam: Team, completion: ((PFObject)->())? = nil, failedWithNoNameMatch: (()->())? = nil) {
+        let teamQuery = PFQuery(className: "Team")
+        teamQuery.whereKey("name", equalTo: theTeam.name)
+        teamQuery.findObjectsInBackground { teams, error in
+            if let teams = teams {
+                if let team = teams.first {
+                    print("find team with name: \(theTeam.name)")
+                    completion?(team)
+                }
+            } else {
+                failedWithNoNameMatch?()
+            }
+        }
+    }
+    
+    
+    /**
+     Add a athlete to a team by update athlete["team"] in Athlete entity
+     - parameter theTeam: Team
+     - parameter theAthlete: Athlete
+     */
+    static func coachUpdateTeamWithAddingNewAthlete(theTeam: Team, theAthlete: Athlete, completion: (()->())? = nil) {
+        // get pfobject for the athlete
+        getAthlete(by: theAthlete.user.username) { athlete in
+            // get team with team name
+            getTeamWithName(theTeam: theTeam) { team in
+                athlete["team"] = team
+                //save info into athlete PFObject
+                athlete.saveInBackground { success, error in
+                    if success {
+                        print("Successfully updated Athlete(\(theAthlete.user.username)'s team(\(theTeam.name)")
+                        completion?()
+                    } else {
+                        print("failed to update athlete(\(theAthlete.user.username)'s team(\(theTeam.name)")
+                    }
+                }
+            }
+        }
     }
     
 }
@@ -121,7 +219,11 @@ extension ParseServerComm {
     }
     
     
-    
+    /**
+     Get current logined user's role object from server (eg: Coach, Athlete)
+     - parameter role: Role -- An enum type to let you choose which role object you need to access from server
+     - parameter completion: (()->())? This closure will invoke after successfully found the role object in database
+     */
     private static func getCurrentUserWithRole(role: Role, completion: @escaping (PFObject)->()) {
         let query = PFQuery(className: role.rawValue)
         query.whereKey("user", equalTo: PFUser.current()!)
@@ -143,7 +245,6 @@ extension ParseServerComm {
         innerQuery.whereKey("username", equalTo: username)
         let query = PFQuery(className: "Athlete")
         query.whereKey("user", matchesQuery: innerQuery)
-        print("check")
         query.findObjectsInBackground() { objects, error in
             if let athletes = objects {
                 if let athlete = athletes.first {

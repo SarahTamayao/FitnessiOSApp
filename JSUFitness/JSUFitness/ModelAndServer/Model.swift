@@ -19,12 +19,12 @@ struct User {
 
 struct Coach {
     let user: User
-    var type: String
+    var type: String?
 }
 
 struct Athlete {
     let user: User
-    var type: String
+    var type: String?
     var team: Team? = nil
 }
 
