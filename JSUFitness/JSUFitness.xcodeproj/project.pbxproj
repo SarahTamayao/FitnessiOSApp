@@ -18,10 +18,12 @@
 		DF3D67FB27F23274001C48DF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FA27F23274001C48DF /* Model.swift */; };
 		DF3D67FD27F235B0001C48DF /* ParseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FC27F235B0001C48DF /* ParseServer.swift */; };
 		DF3D680027F36C81001C48DF /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */; };
+		DF73B1AD27FDF6A0007056DE /* AthleteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF73B1AC27FDF6A0007056DE /* AthleteCollectionViewCell.swift */; };
 		DF8988C827EB756900B26C94 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8988C727EB756900B26C94 /* ProfileViewController.swift */; };
 		DFE7DA8127EA81E80080C801 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE7DA8027EA81E80080C801 /* ScheduleViewController.swift */; };
 		DFE7DA8327EA820C0080C801 /* NotificationTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */; };
 		DFE7DA8527EAC1920080C801 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE7DA8427EAC1920080C801 /* ScheduleTableViewCell.swift */; };
+		DFFC3AC827F7F54A00556041 /* NewTeamCreatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFC3AC727F7F54A00556041 /* NewTeamCreatingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +42,12 @@
 		DF3D67FA27F23274001C48DF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DF3D67FC27F235B0001C48DF /* ParseServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseServer.swift; sourceTree = "<group>"; };
 		DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
+		DF73B1AC27FDF6A0007056DE /* AthleteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF8988C727EB756900B26C94 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DFE7DA8027EA81E80080C801 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableTableViewController.swift; sourceTree = "<group>"; };
 		DFE7DA8427EAC1920080C801 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		DFFC3AC727F7F54A00556041 /* NewTeamCreatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTeamCreatingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 				DF30E82427F4AED6006B1D9F /* Signup&Login */,
 				DF3D67F927F22E64001C48DF /* ModelAndServer */,
 				DF3D67FE27F35F28001C48DF /* Schedule */,
+				DFFC3AC627F7F4F500556041 /* NewEvent */,
 				DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */,
 				DF8988C727EB756900B26C94 /* ProfileViewController.swift */,
 				DF01153A27EA203200CBF2E2 /* Info.plist */,
@@ -137,6 +142,15 @@
 				DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		DFFC3AC627F7F4F500556041 /* NewEvent */ = {
+			isa = PBXGroup;
+			children = (
+				DFFC3AC727F7F54A00556041 /* NewTeamCreatingViewController.swift */,
+				DF73B1AC27FDF6A0007056DE /* AthleteCollectionViewCell.swift */,
+			);
+			path = NewEvent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +271,7 @@
 				DF3D67FB27F23274001C48DF /* Model.swift in Sources */,
 				DF8988C827EB756900B26C94 /* ProfileViewController.swift in Sources */,
 				DF30E82627F4AEF8006B1D9F /* SignupViewController.swift in Sources */,
+				DFFC3AC827F7F54A00556041 /* NewTeamCreatingViewController.swift in Sources */,
 				DFE7DA8127EA81E80080C801 /* ScheduleViewController.swift in Sources */,
 				DF3D680027F36C81001C48DF /* ScheduleDetailViewController.swift in Sources */,
 				DFE7DA8527EAC1920080C801 /* ScheduleTableViewCell.swift in Sources */,
@@ -265,6 +280,7 @@
 				DF3D67FD27F235B0001C48DF /* ParseServer.swift in Sources */,
 				200936F427F532F6007914A2 /* LoginViewController.swift in Sources */,
 				DFE7DA8327EA820C0080C801 /* NotificationTableTableViewController.swift in Sources */,
+				DF73B1AD27FDF6A0007056DE /* AthleteCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +428,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6YBGBJ67L3;
+				DEVELOPMENT_TEAM = Y6RK3XXLPA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JSUFitness/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -442,7 +458,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6YBGBJ67L3;
+				DEVELOPMENT_TEAM = Y6RK3XXLPA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JSUFitness/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
