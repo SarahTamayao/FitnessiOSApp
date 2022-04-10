@@ -5,6 +5,7 @@ PODS:
   - Bolts/Tasks (1.9.1)
   - DropDown (2.3.13)
   - FSCalendar (2.8.2)
+  - KDDragAndDropCollectionViews (1.5.2)
   - Parse (1.19.3):
     - Parse/Core (= 1.19.3)
   - Parse/Core (1.19.3):
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - AlamofireImage
   - DropDown
   - FSCalendar
+  - KDDragAndDropCollectionViews
   - Parse
 
 SPEC REPOS:
@@ -23,6 +25,7 @@ SPEC REPOS:
     - Bolts
     - DropDown
     - FSCalendar
+    - KDDragAndDropCollectionViews
     - Parse
 
 SPEC CHECKSUMS:
@@ -31,8 +34,9 @@ SPEC CHECKSUMS:
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
+  KDDragAndDropCollectionViews: 69a4a5c6a2d98852de35bd469b394defb1fc9f7b
   Parse: 0abb63a0ff6fa34a3f64b81d595a294e2ece143a
 
-PODFILE CHECKSUM: c26a4a9c5ea474f8cfd44ab343c442a7a1155a83
+PODFILE CHECKSUM: 6e9469a9d3f3ab6c2ac70deed2795cd8af008645
 
 COCOAPODS: 1.11.2

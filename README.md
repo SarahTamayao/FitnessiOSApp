@@ -64,3 +64,19 @@ JSUFitness is an iOS application that allows the JSU coaching staff and athletic
 
 ### Database Design Schema
 <img src="https://user-images.githubusercontent.com/35981611/160647963-86e61ec6-cf2a-4ad0-891c-7ce6ebef4d20.png" width=800><br>
+
+## Networking
+### List of network
+* Sign up page
+  * (Create/POST) Create a new user as athlete or coach
+* Sign in page
+  * (Read/GET) Sign up by username and password
+* Schedule page
+  * (Read/GET) query all schedule events for current user based on date
+* New Event page
+  * (Create/POST) create a new event
+* Notification page
+  * (Read/GET) query all unconfrimed events
+* Profile page
+  * (Read/GET) query current user object
+  * (Update/PUT) Update current user portrait 

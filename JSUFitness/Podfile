@@ -10,4 +10,5 @@ target 'JSUFitness' do
   pod 'DropDown'
   pod 'Parse'
   pod 'AlamofireImage'
+  pod 'KDDragAndDropCollectionViews'
 end
