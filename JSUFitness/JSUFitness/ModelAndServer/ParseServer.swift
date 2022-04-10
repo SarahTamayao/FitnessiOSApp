@@ -117,7 +117,6 @@ struct ParseServerComm {
     static func NewTeamPostedBycoach(theTeam: Team, completion:(()->())? = nil) {
         getTeamWithName(theTeam: theTeam) { team in
             print("There is already a team with name: \(theTeam.name)")
-            completion?()
         } failedWithNoNameMatch: {
             let team = PFObject(className: "Team")
             team["name"] = theTeam.name
@@ -135,6 +134,38 @@ struct ParseServerComm {
         }
     }
     
+    static func initialTeamMembersPostedByCoach(theTeam: Team, theAthletes: [Athlete], completion:(()->())? = nil) {
+        ParseServerComm.getTeamWithName(theTeam: theTeam, completion: { team in
+            var usernames = [String]()
+            for athlete in theAthletes {
+                usernames.append(athlete.user.username)
+            }
+            let query = PFUser.query()
+            query?.whereKey("username", containedIn: usernames)
+            query?.findObjectsInBackground(block: { PFObjects, error in
+                if let users = PFObjects {
+                    let innerQuery = PFQuery(className: "Athlete")
+                    innerQuery.whereKey("user", containedIn: users)
+                    innerQuery.findObjectsInBackground { PFObjects, error in
+                        if let athletes = PFObjects {
+                            for athlete in athletes {
+                                athlete["team"] = team
+                            }
+                            PFObject.saveAll(inBackground: athletes) { succeed, error in
+                                if succeed {
+                                    completion?()
+                                } else {
+                                    print("Failed to add those athletes to the team.")
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            })
+        })
+    }
+    
     
     /**
      Get a team PFObject that fits required team name
@@ -148,11 +179,11 @@ struct ParseServerComm {
         teamQuery.findObjectsInBackground { teams, error in
             if let teams = teams {
                 if let team = teams.first {
-                    print("find team with name: \(theTeam.name)")
+                    print("found team with name: \(theTeam.name)")
                     completion?(team)
+                } else if teams.count == 0{
+                    failedWithNoNameMatch?()
                 }
-            } else {
-                failedWithNoNameMatch?()
             }
         }
     }
@@ -163,21 +194,73 @@ struct ParseServerComm {
      - parameter theTeam: Team
      - parameter theAthlete: Athlete
      */
-    static func coachUpdateTeamWithAddingNewAthlete(theTeam: Team, theAthlete: Athlete, completion: (()->())? = nil) {
+    static func coachUpdateTeamWithAddingNewAthlete(theTeam: Team, theAthlete: Athlete, completion: ((Bool)->())? = nil) {
         // get pfobject for the athlete
         getAthlete(by: theAthlete.user.username) { athlete in
             // get team with team name
-            getTeamWithName(theTeam: theTeam) { team in
+            getTeamWithName(theTeam: theTeam, completion: { team in
                 athlete["team"] = team
                 //save info into athlete PFObject
                 athlete.saveInBackground { success, error in
                     if success {
-                        print("Successfully updated Athlete(\(theAthlete.user.username)'s team(\(theTeam.name)")
-                        completion?()
+                        print("Successfully updated Athlete(\(theAthlete.user.username)'s team(\(theTeam.name))")
+                        completion?(true)
                     } else {
                         print("failed to update athlete(\(theAthlete.user.username)'s team(\(theTeam.name)")
+                        completion?(false)
                     }
                 }
+            })
+        }
+    }
+    
+    
+    
+    
+    /**
+     return a list of athletes that have not been signed to any team
+     */
+    static func getUnsignedAthletesPortraitAndFName(completion: (([Athlete])->())? = nil) {
+        
+        var theAthletes = [Athlete]()
+        
+        let query = PFQuery(className: "Athlete")
+        query.whereKeyDoesNotExist("team")
+        query.findObjectsInBackground { objects, error in
+            if let athletes = objects {
+                var ids: [String] = []
+                for athlete in athletes {
+                    if let user = athlete["user"] as? PFUser {
+                        if let objectId = user.objectId {
+                            ids.append(objectId)
+                        }
+                    }
+                }
+                
+                let innerQuery = PFUser.query()!
+                innerQuery.whereKey("objectId", containedIn: ids)
+                innerQuery.findObjectsInBackground { objects, error in
+                    if let users = objects {
+                        for user in users {
+                            if let u = user as? PFUser {
+                                var theUser = User(username: u.username!)
+                                guard let fName = u.object(forKey: "first") as? String else {return}
+                                theUser.firstName = fName
+                                guard let portraitImagefile = user.object(forKey: "portrait") as? PFFileObject else {return}
+                                guard let portraitImageUrlStr = portraitImagefile.url else {return}
+                                guard let portraitUrl = URL(string: portraitImageUrlStr) else {return}
+                                theUser.portraitUrl = portraitUrl
+                                theUser.id = u.objectId
+                                let athlete = Athlete(user: theUser)
+                                theAthletes.append(athlete)
+                            }
+                        }
+                        completion?(theAthletes)
+                    }
+                }
+                
+            } else {
+                print("Did not find any matched athletes")
             }
         }
     }
