@@ -33,7 +33,7 @@ class ScheduleViewController: UIViewController {
     //the dropdownmenu
     let dropDownMenu: DropDown = {
         let menu = DropDown()
-        let titles = ["New Training", "New Meeting"]
+        let titles = ["New Training", "New Meeting", "New Team", "New Team Member"]
         menu.dataSource = titles
         menu.textColor = .systemBlue
         menu.textFont = .systemFont(ofSize: 15)
@@ -147,22 +147,15 @@ extension ScheduleViewController {
     func setUpDropDownMenuSelectionAction() {
         self.dropDownMenu.selectionAction = { index, title in
             print("tapped on row \(index), title: \(title)")
-            if index == 0 {
-//                //testing server code
-//                let user1 = User(username: "nora", password: "22345678", firstName: "nora", lastName: "jones", portrait: UIImage(systemName: "lasso") as! UIImage, phone: 6667778888, email: "nora@gmail.com")
-//                let coach = Coach(user: user1, type: "basetball")
-//                ParseServerComm.coachSignUp(theCoach: coach)
-//                let user2 = User(username: "jack", password: "22345678", firstName: "jack", lastName: "jones", portrait: UIImage(systemName: "lasso") as! UIImage, phone: 6667778888, email: "jack@gmail.com")
-//                let athlete = Athlete(user: user2, type: "baseball")
-//                ParseServerComm.athleteSignUp(theAthlete: athlete)
-            } else {
-//                //testing server code
-//                let event = Event(title: "Test", time: Date.now, place: "JSU", detail: "This is a test")
-//                let user2 = User(username: "jack", password: "22345678", firstName: "jack", lastName: "jones", portrait: UIImage(systemName: "lasso") as! UIImage, phone: 6667778888, email: "jack@gmail.com")
-//                let athlete = Athlete(user: user2, type: "baseball")
-//                let athletes = [athlete]
-//                ParseServerComm.coachPostNewEvent(theEvent: event, athletes: athletes, completion: nil)
-                
+            switch index {
+            case 0: return
+            case 1: return
+            case 2:
+                let newVC = NewTeamCreatingViewController()
+                self.present(newVC, animated: true, completion: nil)
+//                self.navigationItem.backButtonTitle = "Cancel"
+            case 3: return
+            default: return
             }
         
         }

@@ -8,22 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		7C97F1DC27FFB1000023F72B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C97F1DB27FFB1000023F72B /* EditViewController.swift */; };
+		200936F427F532F6007914A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200936F327F532F6007914A2 /* LoginViewController.swift */; };
 		D2FE7DF636869D0488B04172 /* Pods_JSUFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 479C90CE07B26C693ADE5A28 /* Pods_JSUFitness.framework */; };
 		DF01152D27EA203100CBF2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01152C27EA203100CBF2E2 /* AppDelegate.swift */; };
 		DF01152F27EA203100CBF2E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01152E27EA203100CBF2E2 /* SceneDelegate.swift */; };
 		DF01153427EA203100CBF2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF01153227EA203100CBF2E2 /* Main.storyboard */; };
 		DF01153627EA203200CBF2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF01153527EA203200CBF2E2 /* Assets.xcassets */; };
 		DF01153927EA203200CBF2E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */; };
+		DF30E82627F4AEF8006B1D9F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF30E82527F4AEF8006B1D9F /* SignupViewController.swift */; };
 		DF3D67FB27F23274001C48DF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FA27F23274001C48DF /* Model.swift */; };
 		DF3D67FD27F235B0001C48DF /* ParseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FC27F235B0001C48DF /* ParseServer.swift */; };
 		DF3D680027F36C81001C48DF /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */; };
+		DF73B1AD27FDF6A0007056DE /* AthleteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF73B1AC27FDF6A0007056DE /* AthleteCollectionViewCell.swift */; };
 		DF8988C827EB756900B26C94 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8988C727EB756900B26C94 /* ProfileViewController.swift */; };
 		DFE7DA8127EA81E80080C801 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE7DA8027EA81E80080C801 /* ScheduleViewController.swift */; };
 		DFE7DA8327EA820C0080C801 /* NotificationTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */; };
 		DFE7DA8527EAC1920080C801 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE7DA8427EAC1920080C801 /* ScheduleTableViewCell.swift */; };
+		DFFC3AC827F7F54A00556041 /* NewTeamCreatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFC3AC727F7F54A00556041 /* NewTeamCreatingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		200936F327F532F6007914A2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		479C90CE07B26C693ADE5A28 /* Pods_JSUFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSUFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4B282AC357361C95CC4ED8 /* Pods-JSUFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSUFitness.debug.xcconfig"; path = "Target Support Files/Pods-JSUFitness/Pods-JSUFitness.debug.xcconfig"; sourceTree = "<group>"; };
 		63016E1BC4E10B62A71A2059 /* Pods-JSUFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSUFitness.release.xcconfig"; path = "Target Support Files/Pods-JSUFitness/Pods-JSUFitness.release.xcconfig"; sourceTree = "<group>"; };
@@ -35,13 +40,16 @@
 		DF01153527EA203200CBF2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF01153827EA203200CBF2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF01153A27EA203200CBF2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF30E82527F4AEF8006B1D9F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		DF3D67FA27F23274001C48DF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DF3D67FC27F235B0001C48DF /* ParseServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseServer.swift; sourceTree = "<group>"; };
 		DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
+		DF73B1AC27FDF6A0007056DE /* AthleteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF8988C727EB756900B26C94 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DFE7DA8027EA81E80080C801 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableTableViewController.swift; sourceTree = "<group>"; };
 		DFE7DA8427EAC1920080C801 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		DFFC3AC727F7F54A00556041 /* NewTeamCreatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTeamCreatingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				DF01152B27EA203100CBF2E2 /* JSUFitness */,
-				DF01153527EA203200CBF2E2 /* Assets.xcassets */,
-				DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */,
 				DF01152A27EA203100CBF2E2 /* Products */,
 				C5C9766F4634635D0AA2D164 /* Pods */,
 				2774C66A36CD6581100BC0EA /* Frameworks */,
@@ -99,14 +105,28 @@
 				DF01153227EA203100CBF2E2 /* Main.storyboard */,
 				DF01152C27EA203100CBF2E2 /* AppDelegate.swift */,
 				DF01152E27EA203100CBF2E2 /* SceneDelegate.swift */,
-				DF01153A27EA203200CBF2E2 /* Info.plist */,
+				DF30E82427F4AED6006B1D9F /* Signup&Login */,
+				DF3D67F927F22E64001C48DF /* ModelAndServer */,
 				DF3D67FE27F35F28001C48DF /* Schedule */,
+				DFFC3AC627F7F4F500556041 /* NewEvent */,
 				DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */,
 				DF8988C727EB756900B26C94 /* ProfileViewController.swift */,
 				7C97F1DB27FFB1000023F72B /* EditViewController.swift */,
 				DF3D67F927F22E64001C48DF /* ModelAndServer */,
+				DF01153A27EA203200CBF2E2 /* Info.plist */,
+				DF01153527EA203200CBF2E2 /* Assets.xcassets */,
+				DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */,
 			);
 			path = JSUFitness;
+			sourceTree = "<group>";
+		};
+		DF30E82427F4AED6006B1D9F /* Signup&Login */ = {
+			isa = PBXGroup;
+			children = (
+				DF30E82527F4AEF8006B1D9F /* SignupViewController.swift */,
+				200936F327F532F6007914A2 /* LoginViewController.swift */,
+			);
+			path = "Signup&Login";
 			sourceTree = "<group>";
 		};
 		DF3D67F927F22E64001C48DF /* ModelAndServer */ = {
@@ -126,6 +146,15 @@
 				DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		DFFC3AC627F7F4F500556041 /* NewEvent */ = {
+			isa = PBXGroup;
+			children = (
+				DFFC3AC727F7F54A00556041 /* NewTeamCreatingViewController.swift */,
+				DF73B1AC27FDF6A0007056DE /* AthleteCollectionViewCell.swift */,
+			);
+			path = NewEvent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,13 +276,17 @@
 				7C97F1DC27FFB1000023F72B /* EditViewController.swift in Sources */,
 				DF3D67FB27F23274001C48DF /* Model.swift in Sources */,
 				DF8988C827EB756900B26C94 /* ProfileViewController.swift in Sources */,
+				DF30E82627F4AEF8006B1D9F /* SignupViewController.swift in Sources */,
+				DFFC3AC827F7F54A00556041 /* NewTeamCreatingViewController.swift in Sources */,
 				DFE7DA8127EA81E80080C801 /* ScheduleViewController.swift in Sources */,
 				DF3D680027F36C81001C48DF /* ScheduleDetailViewController.swift in Sources */,
 				DFE7DA8527EAC1920080C801 /* ScheduleTableViewCell.swift in Sources */,
 				DF01152D27EA203100CBF2E2 /* AppDelegate.swift in Sources */,
 				DF01152F27EA203100CBF2E2 /* SceneDelegate.swift in Sources */,
 				DF3D67FD27F235B0001C48DF /* ParseServer.swift in Sources */,
+				200936F427F532F6007914A2 /* LoginViewController.swift in Sources */,
 				DFE7DA8327EA820C0080C801 /* NotificationTableTableViewController.swift in Sources */,
+				DF73B1AD27FDF6A0007056DE /* AthleteCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -383,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -410,7 +443,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,7 +475,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

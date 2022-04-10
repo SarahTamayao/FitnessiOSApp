@@ -9,28 +9,36 @@ import UIKit
 
 struct User {
     var username: String
-    var password: String
-    var firstName: String
-    var lastName: String
-    var portrait: UIImage
-    var phone: Int
-    var email: String
+    var password: String?
+    var firstName: String?
+    var lastName: String?
+    var portrait: UIImage?
+    var portraitUrl: URL?
+    var phone: Int?
+    var email: String?
+    var id: String? = nil
 }
 
 struct Coach {
     let user: User
-    var type: String
+    var type: String?
 }
 
 struct Athlete {
     let user: User
-    var type: String
+    var type: String?
     var team: Team? = nil
+    var id: String? = nil
+    
+    static func !=(lhs: Athlete, rhs: Athlete) -> Bool {
+        return lhs.user.username != rhs.user.username
+    }
+    
 }
 
 struct Team {
     var name: String
-    let coach: Coach
+    let coach: Coach?
 }
 
 struct Event {
