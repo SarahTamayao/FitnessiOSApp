@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C97F1DC27FFB1000023F72B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C97F1DB27FFB1000023F72B /* EditViewController.swift */; };
 		200936F427F532F6007914A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200936F327F532F6007914A2 /* LoginViewController.swift */; };
+		7C97F1DC27FFB1000023F72B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C97F1DB27FFB1000023F72B /* EditViewController.swift */; };
 		D2FE7DF636869D0488B04172 /* Pods_JSUFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 479C90CE07B26C693ADE5A28 /* Pods_JSUFitness.framework */; };
 		DF01152D27EA203100CBF2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01152C27EA203100CBF2E2 /* AppDelegate.swift */; };
 		DF01152F27EA203100CBF2E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01152E27EA203100CBF2E2 /* SceneDelegate.swift */; };
@@ -106,12 +106,9 @@
 				DF01152C27EA203100CBF2E2 /* AppDelegate.swift */,
 				DF01152E27EA203100CBF2E2 /* SceneDelegate.swift */,
 				DF30E82427F4AED6006B1D9F /* Signup&Login */,
-				DF3D67F927F22E64001C48DF /* ModelAndServer */,
 				DF3D67FE27F35F28001C48DF /* Schedule */,
-				DFFC3AC627F7F4F500556041 /* NewEvent */,
-				DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */,
-				DF8988C727EB756900B26C94 /* ProfileViewController.swift */,
-				7C97F1DB27FFB1000023F72B /* EditViewController.swift */,
+				DFD6E28E28037FD500FF3E8C /* Notification */,
+				DFD6E28D28037F6C00FF3E8C /* Profile */,
 				DF3D67F927F22E64001C48DF /* ModelAndServer */,
 				DF01153A27EA203200CBF2E2 /* Info.plist */,
 				DF01153527EA203200CBF2E2 /* Assets.xcassets */,
@@ -144,8 +141,26 @@
 				DFE7DA8027EA81E80080C801 /* ScheduleViewController.swift */,
 				DFE7DA8427EAC1920080C801 /* ScheduleTableViewCell.swift */,
 				DF3D67FF27F36C81001C48DF /* ScheduleDetailViewController.swift */,
+				DFFC3AC627F7F4F500556041 /* NewEvent */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		DFD6E28D28037F6C00FF3E8C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DF8988C727EB756900B26C94 /* ProfileViewController.swift */,
+				7C97F1DB27FFB1000023F72B /* EditViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		DFD6E28E28037FD500FF3E8C /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				DFE7DA8227EA820C0080C801 /* NotificationTableTableViewController.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		DFFC3AC627F7F4F500556041 /* NewEvent */ = {
