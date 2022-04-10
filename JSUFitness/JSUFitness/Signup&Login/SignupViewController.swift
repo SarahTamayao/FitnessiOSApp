@@ -212,6 +212,8 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
 extension UIImageView {
     func setToRoundedView() {
         self.layer.cornerRadius = self.frame.width/2.0
+        self.layer.borderWidth = 3
+        self.layer.borderColor = UIColor.systemBrown.cgColor
     }
 }
 
