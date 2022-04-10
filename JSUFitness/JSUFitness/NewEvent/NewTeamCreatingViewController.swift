@@ -10,8 +10,8 @@ import KDDragAndDropCollectionViews
 
 class NewTeamCreatingViewController: UIViewController {
     
-    var athletes:[String] = ["a", "b", "c", "d", "e"]
-    var newTeamMembers = [String]()
+    var athletes:[Athlete] = []
+    var newTeamMembers = [Athlete]()
     
     let stackView:UIStackView = {
         let sv = UIStackView()
@@ -100,6 +100,18 @@ extension NewTeamCreatingViewController {
         self.addKeyboardDismissGesture()
         
         viewLayoutSetup()
+        addOkButtonFunction()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        ParseServerComm.getUnsignedAthletesPortraitAndFName { athletes in
+//            print(athletes)
+            self.athletes = athletes
+            self.newTeamMembers = []
+            self.athleteCollectionView.reloadData()
+            self.newTeamMemberCollectionView.reloadData()
+        }
     }
     
 }
@@ -117,9 +129,21 @@ extension NewTeamCreatingViewController: KDDragAndDropCollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "athleteCell", for: indexPath) as? AthleteCollectionViewCell else {return UICollectionViewCell()}
         if collectionView.tag == 0 {
-            cell.fNamelabel.text = athletes[indexPath.row]
+            if let fName = athletes[indexPath.row].user.firstName {
+                cell.fNamelabel.text = fName
+            }
+            if let portraitUrl = athletes[indexPath.row].user.portraitUrl {
+                cell.portrait.af.setImage(withURL: portraitUrl)
+            }
+            
         } else {
-            cell.fNamelabel.text = newTeamMembers[indexPath.row]
+            if let fName = newTeamMembers[indexPath.row].user.firstName {
+                cell.fNamelabel.text = fName
+            }
+            if let portraitUrl = newTeamMembers[indexPath.row].user.portraitUrl {
+                cell.portrait.af.setImage(withURL: portraitUrl)
+            }
+            
         }
         cell.isHidden = false
         if let kdCollectionView = collectionView as? KDDragAndDropCollectionView {
@@ -144,7 +168,7 @@ extension NewTeamCreatingViewController: KDDragAndDropCollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, insertDataItem dataItem: AnyObject, atIndexPath indexPath: IndexPath) {
-        if let athlete = dataItem as? String {
+        if let athlete = dataItem as? Athlete {
             if collectionView.tag == 0 {
                 athletes.insert(athlete, at: indexPath.row)
             } else {
@@ -161,12 +185,12 @@ extension NewTeamCreatingViewController: KDDragAndDropCollectionViewDataSource {
         }
     }
     
-    func move(in list: inout [String], from iA: Int, to iB: Int) {
+    func move(in list: inout [Athlete], from iA: Int, to iB: Int) {
         
-        print("fromIndex: \(iA)")
-        print("toIndex: \(iB)")
-        print("count of listA: \(list.count)")
-        print("listA: \(list)")
+//        print("fromIndex: \(iA)")
+//        print("toIndex: \(iB)")
+//        print("count of listA: \(list.count)")
+//        print("listA: \(list)")
         
         let item = list[iA]
         list.remove(at: iA)
@@ -179,7 +203,7 @@ extension NewTeamCreatingViewController: KDDragAndDropCollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, indexPathForDataItem dataItem: AnyObject) -> IndexPath? {
-        guard let athlete = dataItem as? String else {return nil}
+        guard let athlete = dataItem as? Athlete else {return nil}
         let list = collectionView.tag == 0 ? athletes : newTeamMembers
         for (i, ath) in list.enumerated() {
             if ath != athlete {
@@ -331,5 +355,25 @@ extension NewTeamCreatingViewController {
     
     @objc func theViewTapped() {
         titleTextField.resignFirstResponder()
+    }
+}
+
+//MARK: - OK button functionality
+extension NewTeamCreatingViewController {
+    @objc func okButtonTapped() {
+        if let teamName = titleTextField.text {
+            if teamName.count != 0 {
+                let team = Team(name: teamName, coach: nil)
+                ParseServerComm.NewTeamPostedBycoach(theTeam: team) {
+                    ParseServerComm.initialTeamMembersPostedByCoach(theTeam: team, theAthletes: self.newTeamMembers) {
+                        self.dismiss(animated: true)
+                    }
+                }
+            }
+        }
+    }
+    
+    func addOkButtonFunction() {
+        okButton.addTarget(self, action: #selector(okButtonTapped), for: .touchUpInside)
     }
 }
