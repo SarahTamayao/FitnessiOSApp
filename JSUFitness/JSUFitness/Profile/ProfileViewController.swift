@@ -22,6 +22,12 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func LogoutButton(_ sender: Any) {
+        ParseServerComm.userLogout {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let loginVC = main.instantiateViewController(withIdentifier: "logInPage")
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let delegate = windowScene.delegate as? SceneDelegate else {return}
+            delegate.window?.rootViewController = loginVC
+        }
     }
     
     @IBAction func EditButton(_ sender: Any) {

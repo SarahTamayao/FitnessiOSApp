@@ -227,7 +227,7 @@
         <!--Login View Controller-->
         <scene sceneID="4du-Ou-G1R">
             <objects>
-                <viewController id="klW-q0-MK3" customClass="LoginViewController" customModule="JSUFitness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="logInPage" id="klW-q0-MK3" customClass="LoginViewController" customModule="JSUFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LhW-WI-ZPB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -792,7 +792,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dmr-pz-3av"/>
+        <segue reference="xg9-g8-wl5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="JSUTigerLogo" width="222.66667175292969" height="210"/>

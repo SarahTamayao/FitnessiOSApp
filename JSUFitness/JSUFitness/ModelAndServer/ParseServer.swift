@@ -87,6 +87,41 @@ struct ParseServerComm {
         }
     }
     
+    /**
+     get the info for current user
+     */
+    static func getCurrentUser() -> User? {
+        if let user = PFUser.current() {
+            let username = user.username!
+            var currentUser = User(username: username)
+            currentUser.firstName = user.object(forKey: "first") as? String
+            currentUser.lastName = user.object(forKey: "last") as? String
+            if let portraitImagefile = user.object(forKey: "portrait") as? PFFileObject {
+                if let portraitImageUrlStr = portraitImagefile.url  {
+                    if let portraitUrl = URL(string: portraitImageUrlStr) {
+                        currentUser.portraitUrl = portraitUrl
+                    }
+                }
+            }
+            currentUser.phone = user.object(forKey: "phone") as? Int
+            currentUser.email = user.object(forKey: "email") as? String
+            
+            return currentUser
+        } else {
+            return nil
+        }
+        
+    }
+    
+    /**
+     User log out
+     - parameter completion: (()->())? the closure will be invoked after user successfully logged out
+     */
+    static func userLogout(completion: (()->())?) {
+        PFUser.logOut()
+        completion?()
+    }
+    
     
     /**
      Post a new Event on server by Coach
@@ -157,6 +192,10 @@ struct ParseServerComm {
         }
     }
     
+    
+    /**
+     Add athletes that has not been signed up any other team to the new team (should use this function with func(NewTeamPostedByCoach()))
+     */
     static func initialTeamMembersPostedByCoach(theTeam: Team, theAthletes: [Athlete], completion:(()->())? = nil) {
         ParseServerComm.getTeamWithName(theTeam: theTeam, completion: { team in
             var usernames = [String]()
