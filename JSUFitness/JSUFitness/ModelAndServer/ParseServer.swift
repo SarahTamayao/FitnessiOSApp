@@ -65,6 +65,27 @@ struct ParseServerComm {
         }
     }
     
+    
+    /**
+     User sign in with username and password
+     - parameter theUser: User object
+     - parameter completion: (()->())? the closure which will be invoked after user successfully logged in
+     - Description this function will allow user to log in by correct username and password, completion clousure can be used to invoke seque to  go to next viewcontroller
+     */
+    static func userLogin(theUser: User, completion: (()->())?) {
+        if let password = theUser.password {
+            PFUser.logInWithUsername(inBackground: theUser.username, password: password) { user, error in
+                if user != nil {
+                    print("successfully logged in as user: \(theUser.username)")
+                    completion?()
+                } else {
+                    print("Failed to log in as user: \(theUser.username)")
+                }
+            }
+        }
+    }
+    
+    
     /**
      Post a new Event on server by Coach
      - parameter theEvent: Event
