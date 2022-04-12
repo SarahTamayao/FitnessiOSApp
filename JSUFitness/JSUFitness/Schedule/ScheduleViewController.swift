@@ -137,11 +137,19 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
 //MARK: - Navigationbar items Functionality
 extension ScheduleViewController {
     @IBAction func barAddButtonTapped(_ sender: Any) {
+        
         dropDownMenu.anchorView = self.AddEventButton
         dropDownMenu.direction = .bottom
         guard let anchorViewOfDropDown = dropDownMenu.anchorView else {return}
         dropDownMenu.bottomOffset = CGPoint(x: 0, y: anchorViewOfDropDown.plainView.bounds.height)
-        self.dropDownMenu.show()
+        
+        //if current user is a not a coach, the button won't work
+        ParseServerComm.getCurrentUserWithRole(role: .Coach) { coach in
+            self.dropDownMenu.show()
+        } failedToFindExpectedRole: {
+            print("Current user is not coach")
+        }
+        
     }
     
     func setUpDropDownMenuSelectionAction() {
