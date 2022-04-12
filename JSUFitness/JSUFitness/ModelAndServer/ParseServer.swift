@@ -113,6 +113,32 @@ struct ParseServerComm {
         
     }
     
+    
+    /**
+     Get current logined user's role object from server (eg: Coach, Athlete)
+     - parameter role: Role -- An enum type to let you choose which role object you need to access from server
+     - parameter completion: ((PFObject)->()) This closure will invoke after successfully found the role object in database
+     - parameter failedToFindExpectedRole: (()->())? This closure will invoke if did not find the expected role in database
+     */
+    static func getCurrentUserWithRole(role: Role, completion: @escaping (PFObject)->(), failedToFindExpectedRole: (()->())? = nil) {
+        let query = PFQuery(className: role.rawValue)
+        query.whereKey("user", equalTo: PFUser.current()!)
+        query.findObjectsInBackground() { objects, error in
+            if let roles = objects {
+                if let role = roles.first {
+                    print("successfully found current user with role")
+                    completion(role)
+                } else {
+                    failedToFindExpectedRole?()
+                }
+            } else {
+                print("Failed to find \(role.rawValue)")
+            }
+            
+        }
+    }
+    
+    
     /**
      User log out
      - parameter completion: (()->())? the closure will be invoked after user successfully logged out
@@ -361,28 +387,6 @@ extension ParseServerComm {
         }
         let imageFile = PFFileObject(name: "portrait", data: imageData)
         return imageFile
-    }
-    
-    
-    /**
-     Get current logined user's role object from server (eg: Coach, Athlete)
-     - parameter role: Role -- An enum type to let you choose which role object you need to access from server
-     - parameter completion: (()->())? This closure will invoke after successfully found the role object in database
-     */
-    private static func getCurrentUserWithRole(role: Role, completion: @escaping (PFObject)->()) {
-        let query = PFQuery(className: role.rawValue)
-        query.whereKey("user", equalTo: PFUser.current()!)
-        query.findObjectsInBackground() { objects, error in
-            if let roles = objects {
-                if let role = roles.first {
-                    print("successfully found current user with role")
-                    completion(role)
-                }
-            } else {
-                print("Failed to find \(role.rawValue)")
-            }
-            
-        }
     }
     
     private static func getAthlete(by username: String, completion: @escaping ((PFObject)->())) {
