@@ -33,7 +33,7 @@ class ScheduleViewController: UIViewController {
     //the dropdownmenu
     let dropDownMenu: DropDown = {
         let menu = DropDown()
-        let titles = ["New Training", "New Meeting", "New Team", "New Team Member"]
+        let titles = ["New Event", "New Team", "New Team Member"]
         menu.dataSource = titles
         menu.textColor = .systemBlue
         menu.textFont = .systemFont(ofSize: 15)
@@ -156,13 +156,15 @@ extension ScheduleViewController {
         self.dropDownMenu.selectionAction = { index, title in
             print("tapped on row \(index), title: \(title)")
             switch index {
-            case 0: return
-            case 1: return
-            case 2:
+            case 0:
+                let newVC = NewEventCreatingViewController()
+//                newVC.modalPresentationStyle = .fullScreen
+                self.present(newVC, animated: true, completion: nil)
+            case 1:
                 let newVC = NewTeamCreatingViewController()
                 self.present(newVC, animated: true, completion: nil)
 //                self.navigationItem.backButtonTitle = "Cancel"
-            case 3: return
+            case 2: return
             default: return
             }
         
