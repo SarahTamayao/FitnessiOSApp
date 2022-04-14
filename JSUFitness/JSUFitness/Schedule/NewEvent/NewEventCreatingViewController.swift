@@ -12,7 +12,8 @@ class NewEventCreatingViewController: UIViewController {
     
     //MARK: Athlete data
     var athletes:[Athlete] = []
-    var altsNeedToAttend:[Athlete] = []
+    var altsShouldAttend:[Athlete] = []
+    var date = Date()
     
     //MARK: ScrollView
     lazy var scrollViewContentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 400)
@@ -83,6 +84,29 @@ class NewEventCreatingViewController: UIViewController {
         picker.minimumDate = .now
         picker.minuteInterval = 15
         return picker
+    }()
+    
+    //MARK: Place
+    let placeStack: UIStackView = {
+        let sv = UIStackView()
+        sv.distribution = .fillEqually
+        sv.axis = .horizontal
+        return sv
+    }()
+    
+    let placeLabel:UILabel =  {
+        let lb = UILabel()
+        lb.text = "Place"
+        lb.font = .boldSystemFont(ofSize: 20)
+        return lb
+    }()
+    
+    let placeTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "place to host event"
+        tf.borderStyle = .roundedRect
+        tf.font = .systemFont(ofSize: 20)
+        return tf
     }()
     
     //MARK: Event detail
@@ -164,14 +188,24 @@ extension NewEventCreatingViewController{
         
         EventStackLayoutSetup(in: svContentView)
         timeStackLayoutSetup(in: svContentView, below: eventStack)
-        detaillabelLayoutSetup(inside: svContentView, below: timeStack)
+        placeStackLayoutSetup(in: svContentView, below: timeStack)
+        detaillabelLayoutSetup(inside: svContentView, below: placeStack)
         detailTextViewLayoutSetup(inside: svContentView, below: detailLabel)
         
         DragDropLayoutSetup()
+        okButton.addTarget(self, action: #selector(okButtonTapped), for: .touchUpInside)
+        
+        scrollView.keyboardDismissMode = .onDrag
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        ParseServerComm.getAllAthletesPortraitAndFName { athletes in
+            self.athletes = athletes
+            self.altsShouldAttend = []
+            self.athleteCollectionView.reloadData()
+            self.athletesShouldAttendCollectionView.reloadData()
+        }
     }
 }
 
@@ -274,7 +308,62 @@ extension NewEventCreatingViewController {
     }
     
     @objc func handleDateSelection() {
-        print(datePicker.date.formatted(date: .numeric, time: .shortened))
+//        let dateStr = datePicker.date.formatted(.iso8601)
+//        print(dateStr)
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//        let date = dateFormatter.date(from: dateStr)
+//        print(date)
+        self.date = datePicker.date
+
+        
+    }
+    
+    //MARK: Place layout
+    func placeStackLayoutSetup(in fatherView: UIView, below topView: UIView) {
+        fatherView.addSubview(placeStack)
+        placeStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            placeStack.leadingAnchor.constraint(equalTo: fatherView.leadingAnchor, constant: 8),
+            placeStack.trailingAnchor.constraint(equalTo: fatherView.trailingAnchor, constant: -8),
+            placeStack.heightAnchor.constraint(equalToConstant: 100),
+            placeStack.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 0)
+        ])
+
+        let labelView = UIView()
+        placeLabelLayoutSetup(inside: labelView)
+        placeStack.addArrangedSubview(labelView)
+        
+        
+        let placeTFView = UIView()
+        placeTextFieldLayoutSetup(inside: placeTFView)
+        placeStack.addArrangedSubview(placeTFView)
+    }
+    
+    func placeLabelLayoutSetup(inside view: UIView) {
+        view.addSubview(placeLabel)
+        placeLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            placeLabel.topAnchor.constraint(equalTo: view.topAnchor),
+            placeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            placeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            placeLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    func placeTextFieldLayoutSetup(inside view: UIView) {
+        view.addSubview(placeTextField)
+        placeTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            placeTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            placeTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            placeTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            placeTextField.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
     //MARK: detail layout
@@ -306,13 +395,18 @@ extension NewEventCreatingViewController {
     //MARK: DragAndDropCollectionViewlayoutSetup
     func DragDropLayoutSetup() {
         athleteCollectionView.collectionViewLayout = collectionViewLayoutSetup()
+        athleteCollectionView.dataSource = self
+        
         athletesShouldAttendCollectionView.collectionViewLayout = collectionViewLayoutSetup()
+        athletesShouldAttendCollectionView.dataSource = self
         
         athleteLabelLayoutSetup(inside: svContentView, below: detailTextView)
         athleteCollectionViewLayoutSetup(inside: svContentView, below: athletesLabel)
         athletesShouldAttendLabelLayoutSetup(inside: svContentView, below: athleteCollectionView)
         athletesShouldAttendCollectionViewSetup(inside: svContentView, below: athleteShouldAttendLabel)
         okButtonLayoutSetup(inside: svContentView, below: athletesShouldAttendCollectionView)
+        
+        dragAndDropManager = KDDragAndDropManager(canvas: self.svContentView, collectionViews: [athleteCollectionView, athletesShouldAttendCollectionView])
         
     }
     
@@ -376,16 +470,107 @@ extension NewEventCreatingViewController {
         ])
     }
     
-    
 }
 
 
 //MARK: - Drag and Drop collectionView
-//extension NewTeamCreatingViewController: KDDragAndDropCollectionViewDataSource {
-//
-//
-//
-//}
+extension NewEventCreatingViewController: KDDragAndDropCollectionViewDataSource {
+    
+    
+    //MARK: conform UICollectionViewDataSource protocol methods
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView.tag == 0 {
+            return self.athletes.count
+        } else {
+            return self.altsShouldAttend.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "athleteCell", for: indexPath) as? AthleteCollectionViewCell else {return UICollectionViewCell()}
+        let dataList:[Athlete] = collectionView.tag == 0 ? athletes : altsShouldAttend
+        if let fName = dataList[indexPath.row].user.firstName {
+            cell.fNamelabel.text = fName
+        }
+        if let portraitUrl = dataList[indexPath.row].user.portraitUrl {
+            cell.portrait.af.setImage(withURL: portraitUrl)
+        }
+        
+        cell.isHidden = false
+        if let kdCollectionView = collectionView as? KDDragAndDropCollectionView {
+            if let draggingPathOfCellBeingDragged = kdCollectionView.draggingPathOfCellBeingDragged {
+                if draggingPathOfCellBeingDragged.row == indexPath.row {
+                    cell.isHidden = true
+                }
+            }
+        }
+        return cell
+    }
+    
+    //MARK: comform KDDragAndDropFCollectionViewDataSource protocol methods
+    func collectionView(_ collectionView: UICollectionView, indexPathForDataItem dataItem: AnyObject) -> IndexPath? {
+        let dataList = collectionView.tag == 0 ? athletes : altsShouldAttend
+        guard let athlete = dataItem as? Athlete else { return nil}
+        for (i, ath) in dataList.enumerated() {
+            if ath != athlete {
+                continue
+            }
+            return IndexPath(row: i, section: 0)
+        }
+        return nil
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, deleteDataItemAtIndexPath indexPath: IndexPath) {
+        if collectionView.tag == 0 {
+            athletes.remove(at: indexPath.row)
+        } else {
+            altsShouldAttend.remove(at: indexPath.row)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, insertDataItem dataItem: AnyObject, atIndexPath indexPath: IndexPath) {
+        if let athlete = dataItem as? Athlete {
+            if collectionView.tag == 0 {
+                athletes.insert(athlete, at: indexPath.row)
+            } else {
+                altsShouldAttend.insert(athlete, at: indexPath.row)
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveDataItemFromIndexPath from: IndexPath, toIndexPath to: IndexPath) {
+        if collectionView.tag == 0 {
+            move(dataList: &athletes, from: from, to: to)
+        } else {
+            move(dataList: &altsShouldAttend, from: from, to: to)
+        }
+        
+    }
+    
+    func move(dataList: inout [Athlete], from: IndexPath, to: IndexPath) {
+        let athlete = dataList[from.row]
+        dataList.remove(at: from.row)
+        dataList.insert(athlete, at: to.row)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, dataItemForIndexPath indexPath: IndexPath) -> AnyObject {
+        if collectionView.tag == 0 {
+            return athletes[indexPath.row] as AnyObject
+        } else {
+            return altsShouldAttend[indexPath.row] as AnyObject
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellIsDraggableAtIndexPath indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellIsDroppableAtIndexPath indexPath: IndexPath) -> Bool {
+        true
+    }
+
+
+}
 
 //MARK: - Get customized UICollectionViewFlowLayout
 extension NewEventCreatingViewController {
@@ -398,4 +583,28 @@ extension NewEventCreatingViewController {
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         return layout
     }
+}
+
+//MARK: - OKButton functionality
+extension NewEventCreatingViewController {
+    
+    @objc func okButtonTapped() {
+        print("okbutton tapped")
+        if eventTextField.text?.count == 0 {
+            print("Must Have event Title")
+            return
+        }
+        if altsShouldAttend.count == 0 {
+            print("Must have at least one athlete to attend the event")
+            return
+        }
+        if placeTextField.text?.count == 0 {
+            print("Must have event host place")
+        }
+        let newEvent = Event(title: eventTextField.text!, time: self.date, place: placeTextField.text!, detail: detailTextView.text)
+        ParseServerComm.NewEventPostByCoach(theEvent: newEvent, athletes: altsShouldAttend) {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
 }
