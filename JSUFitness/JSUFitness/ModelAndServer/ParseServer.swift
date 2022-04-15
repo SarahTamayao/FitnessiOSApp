@@ -73,7 +73,7 @@ struct ParseServerComm {
      - parameter failed: (()->())? this closure will be invoked if user failed to login
      - Description this function will allow user to log in by correct username and password, completion clousure can be used to invoke seque to  go to next viewcontroller
      */
-    static func userLogin(theUser: User, completion: (()->())?, failed: (()->())?) {
+    static func userLogin(theUser: User, completion: (()->())?, failed: ((Error?)->())?) {
         if let password = theUser.password {
             PFUser.logInWithUsername(inBackground: theUser.username, password: password) { user, error in
                 if user != nil {
@@ -81,7 +81,10 @@ struct ParseServerComm {
                     completion?()
                 } else {
                     print("Failed to log in as user: \(theUser.username)")
-                    failed?()
+                    if let e = error {
+                        print(e.localizedDescription)
+                    }
+                    failed?(error)
                 }
             }
         }

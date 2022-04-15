@@ -21,11 +21,36 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        usernametextfield.becomeFirstResponder()
+    }
+    //MARK: - Login Button Fuctionality
     @IBAction func OnloginButton(_ sender: Any) {
+        
+        let user = User(username: usernametextfield.text!, password: passwordtextfield.text!)
+        if(self.usernametextfield.text! == "" || self.passwordtextfield.text! == "")
+        {
+            print("username/password text field is blank")
+            return
+        }
+        ParseServerComm.userLogin(theUser: user) {
+            self.performSegue(withIdentifier: "OnLogin", sender: nil)
+        } failed: { error in
+            if let e = error {
+                
+                let alertController = UIAlertController(title: "Error", message: e.localizedDescription, preferredStyle: .alert)
+
+                let alertAction = UIAlertAction(title: "OK", style: .default) { action in
+                    alertController.dismiss(animated: true)
+                }
+                alertController.addAction(alertAction)
+                
+                self.present(alertController, animated: true)
+            }
+            
+        }
     }
     
-    @IBAction func OnsignUpButton(_ sender: Any) {
-    }
     /*
     // MARK: - Navigation
 
