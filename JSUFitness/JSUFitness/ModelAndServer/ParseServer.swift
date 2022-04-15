@@ -337,7 +337,7 @@ struct ParseServerComm {
                                 var theUser = User(username: u.username!)
                                 guard let fName = u.object(forKey: "first") as? String else {return}
                                 theUser.firstName = fName
-                                guard let portraitImagefile = user.object(forKey: "portrait") as? PFFileObject else {return}
+                                guard let portraitImagefile = u.object(forKey: "portrait") as? PFFileObject else {return}
                                 guard let portraitImageUrlStr = portraitImagefile.url else {return}
                                 guard let portraitUrl = URL(string: portraitImageUrlStr) else {return}
                                 theUser.portraitUrl = portraitUrl
@@ -352,6 +352,49 @@ struct ParseServerComm {
                 
             } else {
                 print("Did not find any matched athletes")
+            }
+        }
+    }
+    
+    /**
+     return a list of All Athletes with their username, firstname, and portraitUrl fetched
+     */
+    static func getAllAthletesPortraitAndFName(completion: @escaping ([Athlete])->()) {
+        var athletes: [Athlete] = []
+        let query = PFQuery(className: "Athlete")
+        query.findObjectsInBackground { objects, error in
+            var ids: [String] = []
+            if let athlts = objects {
+                for athlt in athlts {
+                    if let user = athlt["user"] as? PFUser {
+                        if let id = user.objectId {
+                            ids.append(id)
+                        }
+                    }
+                }
+            }
+            let innerQuery = PFUser.query()!
+            innerQuery.whereKey("objectId", containedIn: ids)
+            innerQuery.findObjectsInBackground { objects, error in
+                if let objects = objects {
+                    for o in objects {
+                        if let user = o as? PFUser {
+                            var theUser = User(username: user.username!)
+                            guard let fName = user.object(forKey: "first") as? String else { return }
+                            theUser.firstName = fName
+                            guard let portraitImagefile = user.object(forKey: "portrait") as? PFFileObject else {return}
+                            guard let portraitImageUrlStr = portraitImagefile.url else {return}
+                            guard let portraitUrl = URL(string: portraitImageUrlStr) else {return}
+                            theUser.portraitUrl = portraitUrl
+                            theUser.id = user.objectId
+                            let athlete = Athlete(user: theUser)
+                            athletes.append(athlete)
+                        }
+                    }
+                    completion(athletes)
+                } else {
+                    print("Did not find any athletes")
+                }
             }
         }
     }

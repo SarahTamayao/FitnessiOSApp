@@ -15,6 +15,7 @@
 		DF01153427EA203100CBF2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF01153227EA203100CBF2E2 /* Main.storyboard */; };
 		DF01153627EA203200CBF2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF01153527EA203200CBF2E2 /* Assets.xcassets */; };
 		DF01153927EA203200CBF2E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF01153727EA203200CBF2E2 /* LaunchScreen.storyboard */; };
+		DF197E282805D0E50036B655 /* NewEventCreatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF197E272805D0E50036B655 /* NewEventCreatingViewController.swift */; };
 		DF30E82627F4AEF8006B1D9F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF30E82527F4AEF8006B1D9F /* SignupViewController.swift */; };
 		DF3D67FB27F23274001C48DF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FA27F23274001C48DF /* Model.swift */; };
 		DF3D67FD27F235B0001C48DF /* ParseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3D67FC27F235B0001C48DF /* ParseServer.swift */; };
@@ -40,6 +41,7 @@
 		DF01153527EA203200CBF2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF01153827EA203200CBF2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF01153A27EA203200CBF2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF197E272805D0E50036B655 /* NewEventCreatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventCreatingViewController.swift; sourceTree = "<group>"; };
 		DF30E82527F4AEF8006B1D9F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		DF3D67FA27F23274001C48DF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DF3D67FC27F235B0001C48DF /* ParseServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseServer.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				DFFC3AC727F7F54A00556041 /* NewTeamCreatingViewController.swift */,
+				DF197E272805D0E50036B655 /* NewEventCreatingViewController.swift */,
 				DF73B1AC27FDF6A0007056DE /* AthleteCollectionViewCell.swift */,
 			);
 			path = NewEvent;
@@ -302,6 +305,7 @@
 				200936F427F532F6007914A2 /* LoginViewController.swift in Sources */,
 				DFE7DA8327EA820C0080C801 /* NotificationTableTableViewController.swift in Sources */,
 				DF73B1AD27FDF6A0007056DE /* AthleteCollectionViewCell.swift in Sources */,
+				DF197E282805D0E50036B655 /* NewEventCreatingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
