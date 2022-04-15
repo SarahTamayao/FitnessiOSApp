@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="vfc-og-V8b" customClass="SignupViewController" customModule="JSUFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hz4-GF-iZL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JSUTigerLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ITQ-D8-Yi0" userLabel="LogoImageView">
@@ -27,10 +27,10 @@
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUf-Pw-EgM">
-                                <rect key="frame" x="0.0" y="188" width="375" height="590"/>
+                                <rect key="frame" x="0.0" y="188" width="375" height="570"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfU-5i-V77" userLabel="SignupInfoView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="885"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="855"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Lgu-aa-jfA" userLabel="Portrait stack">
                                                 <rect key="frame" x="8" y="8" width="359" height="150"/>
@@ -253,7 +253,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sXA-ul-Pnd">
                                 <rect key="frame" x="20" y="406.66666666666669" width="335" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgP-Aj-cCj">
                                 <rect key="frame" x="157.66666666666666" y="440.66666666666669" width="60" height="31"/>
@@ -280,7 +280,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <action selector="OnsignUpButton:" destination="klW-q0-MK3" eventType="touchUpInside" id="VBH-M5-yRx"/>
+                                    <segue destination="vfc-og-V8b" kind="presentation" id="Zce-gU-Vze"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New to JSU Fitness?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl7-yw-2UM">
